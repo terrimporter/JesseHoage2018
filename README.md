@@ -1,6 +1,6 @@
 # README
 
-This repository contains Bash and Perl scripts used to process the Illumina MiSeq reads generated in Jesse Hoage's Master's Thesis.  I have also included a custom COI reference set (CO1 Classifier v2.1) that is based on the CO1 Eukaryote Classifier v2.0 but contains 37 additional COI barcode sequences generated from a collection of local taxa.
+This repository contains Bash and Perl scripts used to process the Illumina MiSeq reads generated in Jesse Hoage's Master's Thesis.  I have also included a custom COI reference set (CO1 Classifier v2.1) that is based on the CO1 Eukaryote Classifier v2.0 but contains 37 additional COI barcode sequences generated from a collection of local taxa.  The latest release can be downloaded as a package from https://github.com/terrimporter/JesseHoage2018/releases
 
 ## Overview
 
