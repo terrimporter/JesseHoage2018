@@ -40,7 +40,7 @@ ls | grep .Ftrimmed.fastq | parallel -j 15 "cutadapt -a <INSERT REVERSE COMPLEME
 
 ## Part 3 - Dereplicate reads
 
-I add the sample name to FASTA headers using the rename_all_fastas command that links to the run_rename_fasta.sh script.  Therein, the rename_fasta command links to the rename_fasta.plx script.  This step is necessary for proper OTU table generation in USEARCH.  This command should be run in a directory of FASTA files.  This step also produces a single concatenated fasta file to permit a GLOBAL sample analysis in VSEARCH and USEARCH.  Then I change any dashes in the FASTA headers to underscores so that the OTU table is generated properly in USEARCH using the program vi Editor.  Read dereplication is carried out with VSEARCH using the default parameters but tracking the number of clustered reads with the --sizein and --sizeout flags.
+I add the sample name to FASTA headers using the rename_all_fastas command that links to the run_rename_fasta.sh script.  Therein, the rename_fasta command links to the rename_fasta.plx script.  This step is necessary for proper OTU table generation in USEARCH.  This command should be run in a directory of FASTA files.  This step also produces a single concatenated FASTA file to permit a GLOBAL sample analysis in VSEARCH and USEARCH.  Then I change any dashes in the FASTA headers to underscores so that the OTU table is generated properly in USEARCH using the program vi Editor.  Read dereplication is carried out with VSEARCH using the default parameters but tracking the number of clustered reads with the --sizein and --sizeout flags.
 
 ~~~linux
 rename_all_fastas
@@ -119,7 +119,7 @@ ln -s /path/to/script/script.sh commandName
 
 ### Summary statistics
 
-At each major step of the data flow described above, fastq files are converted to fasta files using MOTHUR v1.38.1.  A perl script is then used to calculate sequence statistics including total number of sequences and min/max/mean/median/mode sequence length.  The command stats_R1 runs the Bash script run_fastsa_stats_parallel_R1fasta.sh where the pattern to search for the infiles is hard-coded.  Therein, stats links to the Perl script fasta_stats_parallel.plx.  The command stats_R2 runs the Bash script run_fasta_stats_parallelR2fasta.sh where the pattern to search for the infiles is hard-coded.  The command stats_fasta links to run_fastastats_parallel_fasta.sh .  The stats_uniques command links to the run_fastastats_parallel_uniques.sh script.  The command read_counts_uniques links to the get_read_counts_uniques.sh .  The stats_denoised command links to the run_fastastats_parallel_denoised.sh . The read_count_denoised command links to the get_read_counts_denoised.sh . The stats_centroids3 command links to the 
+At each major step of the data flow described above, fastq files are converted to FASTA files using MOTHUR v1.38.1.  A perl script is then used to calculate sequence statistics including total number of sequences and min/max/mean/median/mode sequence length.  The command stats_R1 runs the Bash script run_fasta_stats_parallel_R1fasta.sh where the pattern to search for the infiles is hard-coded.  Therein, stats links to the Perl script fasta_stats_parallel.plx.  The command stats_R2 runs the Bash script run_fasta_stats_parallelR2fasta.sh where the pattern to search for the infiles is hard-coded.  The command stats_fasta links to run_fastastats_parallel_fasta.sh .  The stats_uniques command links to the run_fastastats_parallel_uniques.sh script.  The command read_counts_uniques links to the get_read_counts_uniques.sh .  The stats_denoised command links to the run_fastastats_parallel_denoised.sh . The read_count_denoised command links to the get_read_counts_denoised.sh . The stats_centroids3 command links to the 
 
 ~~~linux
 #Get summary stats for fastq reads
@@ -127,7 +127,7 @@ ls | grep .fastq | parallel -j 23 "mothur '#fastq.info(fast1={})'"
 stats_R1
 stats_R2
 
-#Get summary stats for fasta files
+#Get summary stats for FASTA files
 stats_fasta
 
 #Get summary stats for the dereplicated OTUs
