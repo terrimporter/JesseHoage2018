@@ -83,7 +83,7 @@ ITSx -i cat.denoised.sort2.centroids3 -o cat.denoised.sort2.centroids3 --cpu 15
 
 ## Part 8 - Taxonomic assignment
 
-Taxonomic assignments were performed using the Ribosomal Database Project (RDP) Classifier (Wang et al., 2007).  Read counts from the OTU table were mapped to the RDP classifier taxonomic assignments using add_abundance_to_rdp_out3.plx .  The ITS reference set is available with the RDP Classifier and is called with the -g flag.  A custom 18S database is available (HERE).  The unmodified CO1 Classifier v1.0 reference database is available from https://github.com/terrimporter/CO1Classifier/releases .  The ammended CO1 Classifier v2.1 is available as a part of this repository.
+Taxonomic assignments were performed using the Ribosomal Database Project (RDP) Classifier (Wang et al., 2007).  Read counts from the OTU table were mapped to the RDP classifier taxonomic assignments using add_abundance_to_rdp_out3.plx .  The ITS reference set is available with the RDP Classifier and is called with the -g flag.  The 18S v2.0 reference set is available at https://github.com/terrimporter/18SClassifier/releases.  The unmodified CO1 Classifier v1.0 reference database is available from https://github.com/terrimporter/CO1Classifier/releases .  The ammended CO1 Classifier v2.1 is available as a release from this repository.
 
 ~~~linux
 #Classify the ITS sequences
