@@ -102,6 +102,8 @@ perl add_abundance_to_rdp_out3.plx cat.fasta.table97 rdp.out
 
 ## Implementation notes
 
+Shell scripts are written for Bash. Other scripts are written in Perl and may require additional libraries that are indicated near the top of the script when needed and these can be obtained from CPAN.
+
 To keep the dataflow here as clear as possible, I have ommitted file renaming and clean-up steps.  I also use shortcuts to link to scripts as described above in numerous places.  This is only helpful if you will be running this pipeline often.  I describe, in general, how I like to do this here:
 
 ### File clean-up
