@@ -40,11 +40,11 @@ ls | grep .Ftrimmed.fastq | parallel -j 15 "cutadapt -a <INSERT REVERSE COMPLEME
 
 ## Part 3 - Dereplicate reads
 
-I add the sample name to FASTA headers using the rename_all_fastas command that links to the run_rename_fasta.sh script.  Therein, the rename_fasta command links to the rename_fasta.plx script.  This step is necessary for proper OTU table generation in USEARCH.  This command should be run in a directory of FASTA files.  This step also produces a single concatenated fasta file to permit a GLOBAL sample analysis in VSEARCH and USEARCH.  Then I change any dashes in the FASTA headers to underscores so that the OTU table is generated properly in USEARCH.  Read dereplication is carried out with VSEARCH using the default parameters but tracking the number of clustered reads with the --sizein and --sizeout flags.
+I add the sample name to FASTA headers using the rename_all_fastas command that links to the run_rename_fasta.sh script.  Therein, the rename_fasta command links to the rename_fasta.plx script.  This step is necessary for proper OTU table generation in USEARCH.  This command should be run in a directory of FASTA files.  This step also produces a single concatenated fasta file to permit a GLOBAL sample analysis in VSEARCH and USEARCH.  Then I change any dashes in the FASTA headers to underscores so that the OTU table is generated properly in USEARCH using the program vi Editor.  Read dereplication is carried out with VSEARCH using the default parameters but tracking the number of clustered reads with the --sizein and --sizeout flags.
 
 ~~~linux
 rename_all_fastas
-vi -c "%s/-/\_/g" -c "wq" cat.fasta
+vi -c "%s/-/_/g" -c "wq" cat.fasta
 vsearch --threads 10 --derep_fulllength cat.fasta --output cat.uniques --sizein --sizeout
 ~~~
 
